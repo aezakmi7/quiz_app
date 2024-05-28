@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:quiz_app/content.dart';
 
 const startAligment = Alignment.topLeft;
 const endAligment = Alignment.bottomRight;
@@ -23,9 +22,6 @@ class GradientContainer extends StatelessWidget {
           begin: startAligment,
           end: endAligment,
         ),
-      ),
-      child: const Center(
-        child: MainContent(),
       ),
     );
   }
