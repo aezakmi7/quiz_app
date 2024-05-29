@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:quiz_app/answer_button.dart';
+import 'package:quiz_app/data/questions.dart';
 
 class QuestionsScreen extends StatefulWidget {
   const QuestionsScreen({super.key});
@@ -10,59 +12,32 @@ class QuestionsScreen extends StatefulWidget {
 class _QuestionsScreenState extends State<QuestionsScreen> {
   @override
   Widget build(BuildContext context) {
-    return const Center(
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Text(
-            'Question 1?:',
-            style: TextStyle(
-              fontSize: 20,
-              fontWeight: FontWeight.bold,
-              color: Colors.white,
+    final currentQuestion = questions[0];
+
+    return Center(
+      child: SizedBox(
+        width: double.infinity,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              currentQuestion.text,
+              style: const TextStyle(
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
+              ),
             ),
-          ),
-          SizedBox(
-            height: 20,
-          ),
-          Text(
-            'Answer 1',
-            style: TextStyle(
-              fontSize: 20,
-              color: Colors.white,
+            const SizedBox(
+              height: 20,
             ),
-          ),
-          SizedBox(
-            height: 10,
-          ),
-          Text(
-            'Answer 2',
-            style: TextStyle(
-              fontSize: 20,
-              color: Colors.white,
+            ...currentQuestion.answers.map(
+              (answer) => AnswerButton(
+                answerText: answer,
+                onTap: () {},
+              ),
             ),
-          ),
-          SizedBox(
-            height: 10,
-          ),
-          Text(
-            'Answer 3',
-            style: TextStyle(
-              fontSize: 20,
-              color: Colors.white,
-            ),
-          ),
-          SizedBox(
-            height: 10,
-          ),
-          Text(
-            'Answer 4',
-            style: TextStyle(
-              fontSize: 20,
-              color: Colors.white,
-            ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
