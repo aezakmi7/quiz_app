@@ -15,7 +15,7 @@ class AnswerButton extends StatelessWidget {
           vertical: 10,
           horizontal: 40,
         ),
-        backgroundColor: const Color.fromARGB(255, 95, 0, 95),
+        backgroundColor: Colors.purple[700],
         foregroundColor: Colors.white,
       ),
       onPressed: onTap,
